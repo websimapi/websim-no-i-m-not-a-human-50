@@ -1,3 +1,5 @@
+
+```
 export function typeText(el, text, speed=40){
   el.textContent=''; let i=0; return new Promise(res=>{ const tick=()=>{ el.textContent += text[i++]||''; i<=text.length ? setTimeout(tick, speed) : res(); }; tick(); });
 }
