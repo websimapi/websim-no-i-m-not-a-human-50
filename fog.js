@@ -1,5 +1,3 @@
-
-```javascript
 export class FogFX {
   constructor(selector) {
     this.canvas = document.querySelector(selector);
@@ -36,10 +34,9 @@ void main(){
   float flow = fbm(q*2.4 + vec2(-tm*1.3, tm*1.1));
   float detail = fbm(q*4.5 + vec2(tm*0.8, tm*0.6));
   float fog = smoothstep(0.25, 0.85, base*0.6 + flow*0.35 + detail*0.2);
-  // edge falloff for subtle vignette
   float vign = smoothstep(1.2, 0.2, length(q)*0.9);
   float alpha = fog * vign * op;
-  vec3 color = vec3(0.8); // neutral light fog
+  vec3 color = vec3(0.8);
   gl_FragColor = vec4(color, alpha);}
 `;
     const prog = gl.createProgram();
@@ -86,3 +83,4 @@ void main(){
   }
   stop(){ this.running=false; }
 }
+
